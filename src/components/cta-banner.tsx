@@ -1,33 +1,58 @@
-import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
 
-export function CTABanner() {
+interface CTABannerProps {
+  heading?: string;
+  subheading?: string;
+}
+
+export function CTABanner({
+  heading = "Ready to Fight for Your Rights?",
+  subheading = "Email, call, or text us today. Free phone and virtual consultations available. We fight for clients throughout Florida.",
+}: CTABannerProps) {
   return (
-    <section className="bg-primary py-16 md:py-20">
-      <div className="mx-auto max-w-4xl px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-black text-primary-foreground mb-4 uppercase tracking-tight">
-          Ready to Fight for Your Rights?
+    <section className="relative overflow-hidden bg-primary py-16 md:py-20">
+      {/* Subtle diagonal accent */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-10"
+        aria-hidden="true"
+      >
+        <div className="absolute -right-20 -top-20 size-80 rotate-45 rounded-3xl bg-white/20" />
+        <div className="absolute -bottom-16 -left-16 size-64 rotate-12 rounded-3xl bg-black/20" />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-4 text-center">
+        <h2 className="mb-4 text-3xl font-black uppercase tracking-tight text-primary-foreground md:text-4xl lg:text-5xl">
+          {heading}
         </h2>
-        <p className="text-primary-foreground/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-          Email, call, or text us. Free consultations available. We work
-          throughout Florida.
+        <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
+          {subheading}
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          <Link
+
+        {/* Contact info */}
+        <div className="mb-8 flex flex-col items-center justify-center gap-4 text-primary-foreground/80 sm:flex-row sm:gap-8">
+          <a
             href="tel:7868551000"
-            className="inline-flex items-center gap-2 bg-white text-primary font-bold px-8 py-4 rounded-lg text-lg hover:bg-white/90 transition-colors"
+            className="flex items-center gap-2 text-lg font-semibold transition-colors hover:text-white"
           >
             <Phone className="size-5" />
             (786) 855-1000
-          </Link>
-          <Link
+          </a>
+          <a
             href="mailto:service@mytriallawyer.com"
-            className="inline-flex items-center gap-2 bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-white/10 transition-colors"
+            className="flex items-center gap-2 text-lg font-semibold transition-colors hover:text-white"
           >
             <Mail className="size-5" />
             service@mytriallawyer.com
-          </Link>
+          </a>
         </div>
+
+        {/* CTA button */}
+        <a
+          href="/contact"
+          className="inline-flex items-center rounded-lg bg-white px-8 py-4 text-lg font-black uppercase tracking-wide text-primary transition-colors hover:bg-white/90"
+        >
+          Contact Us Today
+        </a>
       </div>
     </section>
   );
