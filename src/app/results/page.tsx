@@ -4,7 +4,7 @@ import { CTABanner } from "@/components/cta-banner";
 export const metadata: Metadata = {
   title: "Results",
   description:
-    "See the case results and recoveries achieved by Locay Law for clients throughout Florida in personal injury, insurance, and accident cases.",
+    "See the case results and recoveries achieved by My Trial Lawyer, PLLC for clients throughout Florida in personal injury, insurance, and accident cases.",
 };
 
 const values = [

@@ -7,7 +7,7 @@ import { ContactForm } from "./contact-form";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Locay Law, PLLC in Miami, Florida. Free phone and virtual consultations. Call (786) 855-1000 or email service@mytriallawyer.com.",
+    "Contact My Trial Lawyer, PLLC in Miami, Florida. Free phone and virtual consultations. Call (786) 855-1000 or email service@mytriallawyer.com.",
 };
 
 const contactInfo = [

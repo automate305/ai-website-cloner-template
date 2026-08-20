@@ -5,7 +5,7 @@ import { FAQAccordion } from "./faq-accordion";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Frequently asked questions about Locay Law — fees, consultations, case timelines, and more. Free consultations available.",
+    "Frequently asked questions about My Trial Lawyer, PLLC — fees, consultations, case timelines, and more. Free consultations available.",
 };
 
 const faqItems = [

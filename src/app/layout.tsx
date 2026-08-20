@@ -12,17 +12,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Locay Law, PLLC | My Trial Lawyer | Miami Personal Injury Attorney",
-    template: "%s | Locay Law, PLLC",
+    default: "My Trial Lawyer, PLLC | Miami Personal Injury Attorney",
+    template: "%s | My Trial Lawyer, PLLC",
   },
   description:
-    "Locay Law, PLLC — aggressive personal injury, property insurance litigation, and business law representation in Miami, Florida. Free consultations. (786) 855-1000.",
+    "My Trial Lawyer, PLLC — aggressive personal injury, property insurance litigation, and business law representation in Miami, Florida. Free consultations. (786) 855-1000.",
   keywords: [
     "Miami personal injury lawyer",
     "Florida trial lawyer",
     "property insurance litigation",
     "car accident attorney Miami",
-    "Locay Law",
+    "My Trial Lawyer",
   ],
 };
 

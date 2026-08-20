@@ -6,7 +6,7 @@ import { CTABanner } from "@/components/cta-banner";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Legal insights and updates from Locay Law — articles on personal injury, insurance claims, business law, and your rights in Florida.",
+    "Legal insights and updates from My Trial Lawyer, PLLC — articles on personal injury, insurance claims, business law, and your rights in Florida.",
 };
 
 const blogPosts = [
@@ -43,7 +43,7 @@ export default function BlogPage() {
             <span className="text-primary">Blog</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
-            Legal insights and updates from Locay Law
+            Legal insights and updates from My Trial Lawyer
           </p>
         </div>
       </section>

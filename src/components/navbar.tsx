@@ -39,7 +39,7 @@ export function Navbar() {
         <Link href="/" className="group flex items-center gap-2">
           <span className="h-8 w-1.5 rounded-full bg-primary" aria-hidden="true" />
           <span className="text-xl font-black tracking-widest text-brand-blue transition-colors group-hover:text-primary">
-            LOCAY LAW
+            MY TRIAL LAWYER
           </span>
         </Link>
 
