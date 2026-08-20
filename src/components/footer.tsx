@@ -10,14 +10,14 @@ const quickLinks = [
 ];
 
 const practiceAreaLinks = [
-  { label: "Personal Injury", href: "/areas-of-practice/personal-injury" },
+  { label: "Personal Injury", href: "/personal-injury" },
   {
     label: "Property Insurance Litigation",
-    href: "/areas-of-practice/property-insurance-litigation",
+    href: "/property-insurance",
   },
   {
     label: "Business/Contract Law",
-    href: "/areas-of-practice/business-contract-law",
+    href: "/business-law",
   },
 ];
 
