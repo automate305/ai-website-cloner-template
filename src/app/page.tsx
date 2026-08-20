@@ -39,14 +39,14 @@ export default function HomePage() {
   return (
     <>
       {/* ───────────────── HERO ───────────────── */}
-      <section className="relative isolate overflow-hidden bg-[oklch(0.08_0.005_250)]">
+      <section className="relative isolate overflow-hidden bg-brand-blue">
         {/* Red gradient accent */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 70% 40%, oklch(0.35 0.18 25 / 0.35), transparent 70%)",
+              "radial-gradient(ellipse 80% 60% at 70% 40%, oklch(0.52 0.235 25 / 0.35), transparent 70%)",
           }}
         />
 
@@ -54,10 +54,10 @@ export default function HomePage() {
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-primary">
             My Trial Lawyer, PLLC
           </p>
-          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-brand-blue-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             Innovative Legal Help
           </h1>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <p className="mt-4 text-base text-brand-blue-foreground/70 sm:text-lg">
             A Professional Limited Liability Company
           </p>
 
@@ -71,7 +71,7 @@ export default function HomePage() {
             </Link>
             <a
               href="tel:+17868551000"
-              className="inline-flex h-12 items-center gap-2 rounded-lg border border-primary/40 px-8 text-base font-bold text-primary transition-colors hover:bg-primary/10"
+              className="inline-flex h-12 items-center gap-2 rounded-lg border-2 border-brand-blue-foreground/30 px-8 text-base font-bold text-brand-blue-foreground transition-colors hover:bg-brand-blue-foreground/10"
             >
               <Phone className="size-5" />
               (786) 855-1000
@@ -81,12 +81,12 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── WHY CHOOSE US ───────────────── */}
-      <section className="bg-[oklch(0.12_0.005_250)] py-20 sm:py-24">
+      <section className="bg-background py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
             Why Choose Our Firm?
           </h2>
-          <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-primary" />
+          <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-primary" />
           <p className="mt-8 text-lg leading-relaxed text-muted-foreground sm:text-xl">
             We believe that being well informed is an integral part of making
             important legal decisions. Our office prides itself on transparency,
@@ -97,25 +97,25 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── PRACTICE AREAS ───────────────── */}
-      <section className="bg-[oklch(0.1_0.005_250)] py-20 sm:py-24">
+      <section className="bg-secondary/60 py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
               Areas of Practice
             </h2>
-            <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-primary" />
+            <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-primary" />
           </div>
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {practiceAreas.map(({ icon: Icon, title }) => (
               <div
                 key={title}
-                className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-[0_0_24px_oklch(0.55_0.22_25_/_0.15)]"
+                className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg"
               >
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-brand-blue-light text-brand-blue transition-colors group-hover:bg-primary/10 group-hover:text-primary">
                   <Icon className="size-6" />
                 </div>
-                <h3 className="text-lg font-bold leading-snug text-white">
+                <h3 className="text-lg font-bold leading-snug text-foreground">
                   {title}
                 </h3>
               </div>
@@ -125,14 +125,14 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── THE FIRM ───────────────── */}
-      <section className="bg-[oklch(0.12_0.005_250)] py-20 sm:py-24">
+      <section className="bg-background py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid items-start gap-12 lg:grid-cols-[1fr_1px_1fr]">
             {/* Left column */}
             <div>
               <div className="mb-6 flex items-center gap-3">
                 <Scale className="size-7 text-primary" />
-                <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
                   The Firm
                 </h2>
               </div>
@@ -155,9 +155,9 @@ export default function HomePage() {
 
             {/* Right column — Mission */}
             <div className="flex flex-col justify-center">
-              <div className="rounded-xl border border-primary/30 bg-primary/5 p-8">
-                <Users className="mb-4 size-7 text-primary" />
-                <p className="text-xl font-semibold italic leading-relaxed text-white sm:text-2xl">
+              <div className="rounded-xl border border-brand-blue/20 bg-brand-blue-light p-8">
+                <Users className="mb-4 size-7 text-brand-blue" />
+                <p className="text-xl font-semibold italic leading-relaxed text-brand-blue sm:text-2xl">
                   &ldquo;Our mission is to take a genuine interest in our clients,
                   understand their objectives, and exceed them.&rdquo;
                 </p>
@@ -168,11 +168,11 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── OUR FOCUS ───────────────── */}
-      <section className="bg-[oklch(0.1_0.005_250)] py-20 sm:py-24">
+      <section className="bg-secondary/60 py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="mb-6 flex items-center gap-3">
             <Target className="size-7 text-primary" />
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
               Our Focus
             </h2>
           </div>
@@ -188,8 +188,8 @@ export default function HomePage() {
               take a personal interest in Contract Litigation.
             </p>
 
-            <div className="rounded-xl border border-primary/30 bg-primary/5 p-6 sm:p-8">
-              <p className="text-lg font-semibold leading-relaxed text-white sm:text-xl">
+            <div className="rounded-xl border-l-4 border-primary bg-card p-6 shadow-sm sm:p-8">
+              <p className="text-lg font-semibold leading-relaxed text-foreground sm:text-xl">
                 When we take your case, our first goal is to understand the
                 objectives that you as our client are seeking. We understand that
                 no two cases are alike, and most importantly, no two clients are
@@ -202,39 +202,39 @@ export default function HomePage() {
       </section>
 
       {/* ───────────────── CONTACT / CTA ───────────────── */}
-      <section className="relative isolate overflow-hidden bg-[oklch(0.08_0.005_250)] py-20 sm:py-24">
+      <section className="relative isolate overflow-hidden bg-brand-blue py-20 sm:py-24">
         {/* Red gradient accent */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 30% 60%, oklch(0.35 0.18 25 / 0.25), transparent 70%)",
+              "radial-gradient(ellipse 70% 50% at 30% 60%, oklch(0.52 0.235 25 / 0.25), transparent 70%)",
           }}
         />
 
         <div className="relative mx-auto max-w-5xl px-6">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-brand-blue-foreground sm:text-4xl">
               Get in Touch
             </h2>
-            <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-primary" />
+            <div className="mx-auto mt-3 h-1.5 w-16 rounded-full bg-primary" />
             <p className="mt-6 text-lg font-semibold text-primary sm:text-xl">
               FREE Phone or Virtual Consultations!
             </p>
-            <p className="mt-2 text-base text-muted-foreground sm:text-lg">
+            <p className="mt-2 text-base text-brand-blue-foreground/70 sm:text-lg">
               Contact us or send us a TEXT Today!
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Address */}
-            <div className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
+            <div className="flex flex-col items-center rounded-xl border border-brand-blue-foreground/15 bg-brand-blue-foreground/5 p-6 text-center backdrop-blur-sm">
               <MapPin className="mb-3 size-7 text-primary" />
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue-foreground/60">
                 Address
               </p>
-              <p className="mt-2 text-base leading-relaxed text-white">
+              <p className="mt-2 text-base leading-relaxed text-brand-blue-foreground">
                 690 SW 1st Ct
                 <br />
                 Miami, FL 33130
@@ -242,37 +242,37 @@ export default function HomePage() {
             </div>
 
             {/* Phone */}
-            <div className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
+            <div className="flex flex-col items-center rounded-xl border border-brand-blue-foreground/15 bg-brand-blue-foreground/5 p-6 text-center backdrop-blur-sm">
               <Phone className="mb-3 size-7 text-primary" />
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue-foreground/60">
                 Phone
               </p>
               <a
                 href="tel:+17868551000"
-                className="mt-2 text-base font-bold text-white transition-colors hover:text-primary"
+                className="mt-2 text-base font-bold text-brand-blue-foreground transition-colors hover:text-primary"
               >
                 (786) 855-1000
               </a>
             </div>
 
             {/* Fax */}
-            <div className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
+            <div className="flex flex-col items-center rounded-xl border border-brand-blue-foreground/15 bg-brand-blue-foreground/5 p-6 text-center backdrop-blur-sm">
               <Printer className="mb-3 size-7 text-primary" />
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue-foreground/60">
                 Fax
               </p>
-              <p className="mt-2 text-base text-white">(305) 675-3356</p>
+              <p className="mt-2 text-base text-brand-blue-foreground">(305) 675-3356</p>
             </div>
 
             {/* Email */}
-            <div className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center">
+            <div className="flex flex-col items-center rounded-xl border border-brand-blue-foreground/15 bg-brand-blue-foreground/5 p-6 text-center backdrop-blur-sm">
               <Mail className="mb-3 size-7 text-primary" />
-              <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue-foreground/60">
                 Email
               </p>
               <a
                 href="mailto:service@mytriallawyer.com"
-                className="mt-2 text-base font-bold text-white transition-colors hover:text-primary"
+                className="mt-2 text-base font-bold text-brand-blue-foreground transition-colors hover:text-primary"
               >
                 service@mytriallawyer.com
               </a>
@@ -289,7 +289,7 @@ export default function HomePage() {
             </Link>
             <a
               href="tel:+17868551000"
-              className="inline-flex h-12 items-center gap-2 rounded-lg border border-primary/40 px-8 text-base font-bold text-primary transition-colors hover:bg-primary/10"
+              className="inline-flex h-12 items-center gap-2 rounded-lg border-2 border-brand-blue-foreground/30 px-8 text-base font-bold text-brand-blue-foreground transition-colors hover:bg-brand-blue-foreground/10"
             >
               <Phone className="size-5" />
               Call Now

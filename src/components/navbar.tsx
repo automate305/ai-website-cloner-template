@@ -33,12 +33,12 @@ export function Navbar() {
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-brand-blue bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2">
-          <span className="h-8 w-1 rounded-full bg-primary" aria-hidden="true" />
-          <span className="text-xl font-black tracking-widest text-foreground transition-colors group-hover:text-primary">
+          <span className="h-8 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+          <span className="text-xl font-black tracking-widest text-brand-blue transition-colors group-hover:text-primary">
             LOCAY LAW
           </span>
         </Link>
@@ -56,8 +56,8 @@ export function Navbar() {
                 <button
                   type="button"
                   className={cn(
-                    "flex items-center gap-1 rounded-md px-3 py-2 text-xs font-bold tracking-wider text-muted-foreground transition-colors hover:text-primary",
-                    dropdownOpen && "text-primary"
+                    "flex items-center gap-1 rounded-md px-3 py-2 text-xs font-bold tracking-wider text-foreground/70 transition-colors hover:text-brand-blue",
+                    dropdownOpen && "text-brand-blue"
                   )}
                   aria-expanded={dropdownOpen}
                   aria-haspopup="true"
@@ -80,12 +80,12 @@ export function Navbar() {
                       : "pointer-events-none -translate-y-1 opacity-0"
                   )}
                 >
-                  <ul className="min-w-[260px] rounded-lg border border-border bg-card p-1.5 shadow-xl shadow-black/30">
+                  <ul className="min-w-[260px] rounded-lg border border-border bg-card p-1.5 shadow-xl shadow-black/10">
                     {link.children.map((child) => (
                       <li key={child.href}>
                         <Link
                           href={child.href}
-                          className="block rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                          className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-primary/10 hover:text-primary"
                         >
                           {child.label}
                         </Link>
@@ -98,7 +98,7 @@ export function Navbar() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="rounded-md px-3 py-2 text-xs font-bold tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                  className="rounded-md px-3 py-2 text-xs font-bold tracking-wider text-foreground/70 transition-colors hover:text-brand-blue"
                 >
                   {link.label}
                 </Link>
@@ -120,7 +120,7 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:text-primary lg:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-brand-blue transition-colors hover:text-primary lg:hidden"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -143,7 +143,7 @@ export function Navbar() {
               <li key={link.label}>
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm font-bold tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                  className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm font-bold tracking-wider text-foreground/70 transition-colors hover:text-brand-blue"
                   onClick={() => setMobileDropdownOpen((prev) => !prev)}
                   aria-expanded={mobileDropdownOpen}
                 >
@@ -165,7 +165,7 @@ export function Navbar() {
                     <li key={child.href}>
                       <Link
                         href={child.href}
-                        className="block rounded-md py-2 pl-8 pr-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+                        className="block rounded-md py-2 pl-8 pr-3 text-sm text-foreground/70 transition-colors hover:text-primary"
                         onClick={() => setMobileOpen(false)}
                       >
                         {child.label}
@@ -178,7 +178,7 @@ export function Navbar() {
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="block rounded-md px-3 py-2.5 text-sm font-bold tracking-wider text-muted-foreground transition-colors hover:text-primary"
+                  className="block rounded-md px-3 py-2.5 text-sm font-bold tracking-wider text-foreground/70 transition-colors hover:text-brand-blue"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

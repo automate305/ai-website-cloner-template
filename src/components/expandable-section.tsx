@@ -33,7 +33,7 @@ export function ExpandableSection({
   }, [measureHeight, children]);
 
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-card">
+    <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
       {/* Always-visible header with title + summary */}
       <div className="px-6 py-5 md:px-8 md:py-6">
         <h3 className="mb-2 text-lg font-bold text-foreground md:text-xl">

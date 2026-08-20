@@ -51,10 +51,10 @@ function InstagramIcon() {
 
 export function Footer() {
   return (
-    <footer className="border-t-4 border-primary bg-card">
+    <footer className="border-t-4 border-primary bg-brand-blue text-brand-blue-foreground">
       {/* Tagline bar */}
-      <div className="bg-primary/10 py-3 text-center">
-        <p className="text-sm font-bold tracking-wider text-primary">
+      <div className="bg-primary py-3 text-center">
+        <p className="text-sm font-bold tracking-wider text-primary-foreground">
           FREE Phone or Virtual Consultations!
         </p>
       </div>
@@ -64,12 +64,12 @@ export function Footer() {
           {/* Branding & Contact */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <span className="h-6 w-1 rounded-full bg-primary" aria-hidden="true" />
-              <h2 className="text-lg font-black tracking-wider text-foreground">
+              <span className="h-6 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+              <h2 className="text-lg font-black tracking-wider text-brand-blue-foreground">
                 MY TRIAL LAWYER, PLLC
               </h2>
             </div>
-            <address className="space-y-2 not-italic text-sm text-muted-foreground">
+            <address className="space-y-2 not-italic text-sm text-brand-blue-foreground/70">
               <p>690 SW 1st Ct</p>
               <p>Miami, FL 33130</p>
               <p className="pt-1">
@@ -104,7 +104,7 @@ export function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                className="rounded-md p-2 text-brand-blue-foreground/70 transition-colors hover:bg-primary/20 hover:text-primary"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -113,7 +113,7 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                className="rounded-md p-2 text-brand-blue-foreground/70 transition-colors hover:bg-primary/20 hover:text-primary"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -123,7 +123,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-blue-foreground">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -131,7 +131,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-brand-blue-foreground/70 transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -142,7 +142,7 @@ export function Footer() {
 
           {/* Practice Areas */}
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-blue-foreground">
               Practice Areas
             </h3>
             <ul className="space-y-2">
@@ -150,7 +150,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                    className="text-sm text-brand-blue-foreground/70 transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -161,10 +161,10 @@ export function Footer() {
 
           {/* Contact CTA */}
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-blue-foreground">
               Get in Touch
             </h3>
-            <p className="mb-4 text-sm text-muted-foreground">
+            <p className="mb-4 text-sm text-brand-blue-foreground/70">
               Injured? Fighting an insurance company? We are here to help. Call
               us today for a free consultation.
             </p>
@@ -178,8 +178,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-border pt-6 text-center">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-10 border-t border-brand-blue-foreground/15 pt-6 text-center">
+          <p className="text-xs text-brand-blue-foreground/50">
             &copy; {new Date().getFullYear()} My Trial Lawyer, PLLC. All rights
             reserved. The information on this website is for general information
             purposes only and does not constitute legal advice.
