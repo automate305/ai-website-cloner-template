@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Mouse Spotlight",
+  "version": "1.0.0",
+  "description": "Dim the page and keep a spotlight around your cursor — a presenter's spotlight for any website. Toggle with the toolbar button or Ctrl+Shift+L.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "Toggle Mouse Spotlight (Ctrl+Shift+L)",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "commands": {
+    "toggle-spotlight": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Toggle the mouse spotlight"
+    }
+  }
+}
