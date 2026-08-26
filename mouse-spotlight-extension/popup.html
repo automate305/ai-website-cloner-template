@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark" />
+    <style>
+      :root {
+        --bg: #17171a;
+        --panel: #202024;
+        --text: #f5f5f7;
+        --muted: #9a9aa2;
+        --accent: #e11d2a;
+        --border: #303036;
+      }
+      * { box-sizing: border-box; }
+      body {
+        width: 248px;
+        margin: 0;
+        padding: 14px;
+        font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 45%, #fff 0%, #ffe9c2 45%, #2a2a2e 78%);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        flex: none;
+      }
+      .toggle {
+        width: 100%;
+        border: none;
+        border-radius: 9px;
+        padding: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        background: var(--accent);
+        cursor: pointer;
+        transition: filter 120ms ease, background 120ms ease;
+      }
+      .toggle:hover { filter: brightness(1.08); }
+      .toggle.off { background: #34343a; }
+      .row {
+        margin-top: 14px;
+      }
+      .label {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+      .label b { color: var(--text); font-weight: 600; }
+      .stepper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .stepper button {
+        width: 34px;
+        height: 30px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        border-radius: 8px;
+        font-size: 17px;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .stepper button:hover { border-color: #4a4a52; }
+      .stepper .bar {
+        flex: 1;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--border);
+        overflow: hidden;
+      }
+      .stepper .bar > span {
+        display: block;
+        height: 100%;
+        background: var(--accent);
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--accent);
+      }
+      .hint {
+        margin-top: 14px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.6;
+      }
+      .hint kbd {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 0 4px;
+        font-size: 10px;
+      }
+      .disabled { opacity: 0.45; pointer-events: none; }
+      #status {
+        display: none;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      #status.show { display: block; }
+    </style>
+  </head>
+  <body>
+    <div class="title"><span class="dot"></span> Mouse Spotlight</div>
+
+    <button id="toggle" class="toggle off">Turn On</button>
+
+    <div id="controls">
+      <div class="row">
+        <div class="label"><span>Size</span><b id="sizeVal">7</b></div>
+        <div class="stepper">
+          <button id="sizeMinus" aria-label="Smaller">−</button>
+          <div class="bar"><span id="sizeBar"></span></div>
+          <button id="sizePlus" aria-label="Bigger">+</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label"><span>Dim strength</span><b id="dimVal">90%</b></div>
+        <input id="dim" type="range" min="50" max="98" step="1" value="90" />
+      </div>
+    </div>
+
+    <div id="status"></div>
+
+    <div class="hint">
+      Toggle: <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> · While on:
+      <kbd>Z</kbd>/<kbd>X</kbd> size · <kbd>A</kbd>/<kbd>S</kbd> width ·
+      <kbd>W</kbd> reset · <kbd>Esc</kbd> off
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

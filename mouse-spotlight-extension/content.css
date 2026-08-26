@@ -1,0 +1,17 @@
+/* The dimming overlay. Sits above page content but lets clicks pass through.
+   Its radial-gradient background is rewritten on every mouse move by content.js. */
+#mouse-spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647; /* max — sit above any page element */
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.9);
+  transition: opacity 120ms ease;
+}
+
+/* Hide the real cursor while the spotlight is active so only the lit circle
+   draws the eye. Scoped to <html> via a class content.js toggles. */
+html.mouse-spotlight-active,
+html.mouse-spotlight-active * {
+  cursor: none !important;
+}
