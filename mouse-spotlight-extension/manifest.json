@@ -18,7 +18,8 @@
     }
   ],
   "action": {
-    "default_title": "Toggle Mouse Spotlight (Ctrl+Shift+L)",
+    "default_title": "Mouse Spotlight (Ctrl+Shift+L to toggle)",
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon-16.png",
       "48": "icons/icon-48.png",

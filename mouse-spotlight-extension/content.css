@@ -5,7 +5,7 @@
   inset: 0;
   z-index: 2147483647; /* max — sit above any page element */
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.82);
+  background: rgba(0, 0, 0, 0.9);
   transition: opacity 120ms ease;
 }
 

@@ -20,26 +20,44 @@
   const ASPECT_MAX = 10;
   const ASPECT_DEFAULT = 0;
 
+  const DIM_MIN = 0.5;
+  const DIM_MAX = 0.98;
+  const DIM_DEFAULT = 0.9; // darker + more solid than the original's 0.82
+
+  // Edge sharpness: the clear core runs out to CORE_STOP of the radius, then
+  // fades to full dark by EDGE_STOP — a tight feather, not a big soft halo.
+  const CORE_STOP = 0.72;
+  const EDGE_STOP = 0.86;
+
   let enabled = false;
   let overlay = null;
   let size = SIZE_DEFAULT;
   let aspect = ASPECT_DEFAULT;
+  let dim = DIM_DEFAULT;
   let pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-  // Restore the last-used size/aspect from previous sessions.
+  // Restore the last-used settings from previous sessions.
   try {
-    chrome.storage?.local.get(["spotlightSize", "spotlightAspect"], (v) => {
-      if (typeof v.spotlightSize === "number") size = v.spotlightSize;
-      if (typeof v.spotlightAspect === "number") aspect = v.spotlightAspect;
-      if (enabled) redraw();
-    });
+    chrome.storage?.local.get(
+      ["spotlightSize", "spotlightAspect", "spotlightDim"],
+      (v) => {
+        if (typeof v.spotlightSize === "number") size = v.spotlightSize;
+        if (typeof v.spotlightAspect === "number") aspect = v.spotlightAspect;
+        if (typeof v.spotlightDim === "number") dim = v.spotlightDim;
+        if (enabled) redraw();
+      },
+    );
   } catch {
     // storage unavailable — fall back to defaults
   }
 
   function persist() {
     try {
-      chrome.storage?.local.set({ spotlightSize: size, spotlightAspect: aspect });
+      chrome.storage?.local.set({
+        spotlightSize: size,
+        spotlightAspect: aspect,
+        spotlightDim: dim,
+      });
     } catch {
       /* ignore */
     }
@@ -50,9 +68,11 @@
     const lightH = size * SIZE_UNIT;
     const aspectFactor = Math.pow(ASPECT_UNIT + 1, aspect);
     const lightW = lightH / aspectFactor;
+    const core = Math.round(CORE_STOP * 100);
+    const edge = Math.round(EDGE_STOP * 100);
     overlay.style.background =
       `radial-gradient(ellipse ${lightW}px ${lightH}px at ${pos.x}px ${pos.y}px, ` +
-      `transparent 0%, transparent 55%, rgba(0,0,0,0.82) 100%)`;
+      `transparent 0%, transparent ${core}%, rgba(0,0,0,${dim}) ${edge}%)`;
   }
 
   function isEditableTarget(target) {
@@ -97,6 +117,14 @@
     redraw();
   }
 
+  function broadcastState() {
+    try {
+      chrome.runtime?.sendMessage({ type: "SPOTLIGHT_STATE", enabled });
+    } catch {
+      /* ignore */
+    }
+  }
+
   function enable() {
     if (enabled) return;
     enabled = true;
@@ -109,6 +137,7 @@
     window.addEventListener("mousemove", onMouseMove, true);
     window.addEventListener("keydown", onKeyDown, true);
     redraw();
+    broadcastState();
   }
 
   function disable() {
@@ -120,13 +149,7 @@
     document.documentElement.classList.remove("mouse-spotlight-active");
     overlay?.remove();
     overlay = null;
-
-    // Keep the toolbar badge in sync when we turn off from inside the page (Esc).
-    try {
-      chrome.runtime?.sendMessage({ type: "SPOTLIGHT_STATE", enabled: false });
-    } catch {
-      /* ignore */
-    }
+    broadcastState();
   }
 
   function toggle() {
@@ -135,10 +158,47 @@
     return enabled;
   }
 
-  // The background service worker drives toggling (toolbar click / hotkey).
+  function clamp(n, lo, hi) {
+    return Math.max(lo, Math.min(hi, n));
+  }
+
+  function currentState() {
+    return {
+      enabled,
+      size,
+      dim,
+      sizeMin: SIZE_MIN,
+      sizeMax: SIZE_MAX,
+      dimMin: DIM_MIN,
+      dimMax: DIM_MAX,
+    };
+  }
+
+  // Messages come from the background worker (hotkey) and the popup panel.
   chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-    if (message?.type === "TOGGLE_SPOTLIGHT") {
-      sendResponse({ enabled: toggle() });
+    switch (message?.type) {
+      case "TOGGLE_SPOTLIGHT":
+        toggle();
+        break;
+      case "SET_ENABLED":
+        message.value ? enable() : disable();
+        break;
+      case "SET_SIZE":
+        size = clamp(Math.round(message.value), SIZE_MIN, SIZE_MAX);
+        persist();
+        redraw();
+        break;
+      case "SET_DIM":
+        dim = clamp(Number(message.value), DIM_MIN, DIM_MAX);
+        persist();
+        redraw();
+        break;
+      case "GET_STATE":
+        break; // fall through to respond with state
+      default:
+        return; // not ours
     }
+    sendResponse(currentState());
+    return true;
   });
 })();

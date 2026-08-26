@@ -18,8 +18,15 @@ Works the same way in Edge and Brave (`edge://extensions`, `brave://extensions`)
 
 ## Use
 
-- **Toggle on/off:** click the toolbar button, or press **Ctrl+Shift+L** (**⌘+Shift+L** on Mac).
-  A red **ON** badge shows when it's active.
+**Click the toolbar button** to open the control panel:
+
+- **Turn On / Turn Off** button
+- **Size** — `−` / `+` buttons
+- **Dim strength** — slider (50%–98%) to control how dark the rest of the page goes
+
+Or skip the panel entirely with keyboard shortcuts:
+
+- **Toggle on/off:** **Ctrl+Shift+L** (**⌘+Shift+L** on Mac). A red **ON** badge shows when active.
 - While active:
   | Key | Action |
   |-----|--------|
@@ -30,7 +37,7 @@ Works the same way in Edge and Brave (`edge://extensions`, `brave://extensions`)
   | `W` | Reset size + shape |
   | `Esc` | Turn spotlight off |
 
-Your last size/shape is remembered between pages and sessions.
+Your last size, shape, and dim strength are remembered between pages and sessions.
 
 ## Notes & limits
 
